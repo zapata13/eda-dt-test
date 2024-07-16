@@ -5,7 +5,7 @@
     - dynatrace.event_driven_ansible.dt_esa_api:
         dt_api_host: '{{ dt_url }}'
         dt_api_token: '{{ dt_token }}'
-        delay: 15
+        delay: 1
         # (Default is 1 min) i.e plugin runs every 1 minute
   rules:
     - name: Problem payload Dynatrace for App Failure rate increase issue
