@@ -1,0 +1,16 @@
+---
+- name: Listen for ALL events on a webhook
+  hosts: all
+  sources:
+    - dynatrace.event_driven_ansible.dt_esa_api:
+        dt_api_host: '{{ dt_url }}'
+        dt_api_token: '{{ dt_token }}'
+        delay: 2
+        # (Default is 1 min) i.e plugin runs every 1 minute
+  rules:
+    - name: All events debugger
+      condition: |
+        event.meta is defined
+      actions:
+        - debug:
+        - print_event:
